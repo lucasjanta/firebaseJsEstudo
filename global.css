@@ -28,3 +28,28 @@ button:active{
 button:disabled{
     opacity: 0.7;
 }
+
+.loading{
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    font-style: oblique;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.loading label{
+    font-size: 24px;
+    color: white;
+}
+
+body{
+    margin: 0;
+}
+
+.centralize {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -9,9 +9,28 @@ function onChangePassword() {
 }
 
 function login(){
-    window.location.href = 'pages/home/home.html';
+    showLoading();
+    firebase.auth().signInWithEmailAndPassword(
+      form.email().value, form.password().value
+      ).then(response => {
+        hideLoading();
+        window.location.href = 'pages/home/home.html';
+    }).catch(error => {
+        hideLoading();
+        alert(getErrorMessage(error));
+    });
     /* console.log('### window', window);
     console.log('### window, location', window.location); */
+}
+
+function getErrorMessage(error){
+    if(error.code == "auth/user-not-found"){
+        return 'Usuário não encontrado';
+    }
+    if(error.code == "auth/wrong-password"){
+        return 'Senha incorreta';
+    }
+    return error.message;
 }
 
 function register(){
