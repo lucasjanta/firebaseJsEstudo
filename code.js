@@ -9,9 +9,13 @@ function onChangePassword() {
 }
 
 function login(){
-    window.location.href = 'home.html';
+    window.location.href = 'pages/home/home.html';
     /* console.log('### window', window);
     console.log('### window, location', window.location); */
+}
+
+function register(){
+    window.location.href = 'pages/register/register.html';
 }
 
 function isEmailValid() {
