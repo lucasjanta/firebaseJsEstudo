@@ -53,3 +53,13 @@ body{
     justify-content: center;
     align-items: center;
 }
+
+.form-field{
+    margin-bottom: 10px;
+}
+
+input, button {
+    padding: 10px;
+    border-radius: 10px;
+    width: -webkit-fill-available;
+}
