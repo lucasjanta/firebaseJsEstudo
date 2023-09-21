@@ -1,3 +1,9 @@
+firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+        window.location.href = '../home/home.html';
+    }
+})
+
 function onChangeEmail(){
     const email = form.email().value;
     form.emailInvalidError().style.display = validateEmail(email) || !email ? "none" : "block";
@@ -16,6 +22,29 @@ function onChangePassword(){
 function onChangeConfirmPassword(){
     validatePasswordsMatch();
     toggleRegisterButtonDisable()
+}
+
+function register(){
+    showLoading();
+    const email = form.email().value;
+    const password = form.password().value;
+    firebase.auth().createUserWithEmailAndPassword(
+        email, password
+    ).then(() =>{
+        hideLoading();
+        window.location.href = '../../pages/home/home.html';
+    }).catch(error =>{
+        hideLoading();
+        alert(getErrorMessage(error));
+    })
+}
+
+function getErrorMessage(error){
+    if(error.code == "auth/email-already-in-use"){
+        return 'Email já cadastrado';
+        
+    }
+    return error.message;
 }
 
 function validatePasswordsMatch(){
