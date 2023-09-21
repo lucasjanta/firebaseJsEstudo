@@ -11,11 +11,39 @@
     <header>
         <button type="button" class="clear" onclick="logout()">Sair</button>
     </header>
+    <ol>
+        <li class="expense">
+            <b>01/02/2020</b>
+            <p>R$10,00</p>
+            <P>Supermercado</P>
+        </li>
+        <li class="income">
+            <b>03/02/2020</b>
+            <p>R$25,00</p>
+            <P>Salário</P>
+            <p>Empresa x</p>
+        </li>
+        <li class="expense">
+            <b>01/05/2020</b>
+            <p>EUR 5,00</p>
+            <P>Transporte</P>
+            <p>Ida e Volta</p>
+        </li>
+        <li class="expense">
+            <b>07/02/2022</b>
+            <p>USD 3,00</p>
+            <P>Aluguel</P>
+            <p>Mensalidade</p>
+        </li>
+    </ol>
+
+    <button class="fab fixed bottom right">+</button>
 </body>
 
 
 <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-auth-compat.js"></script>
 <script src="../../firebase-init.js"></script>
+<script src="../../auth-guard.js"></script>
 <script src="./home.js"></script>
 </html>
