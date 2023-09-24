@@ -4,6 +4,13 @@ body{
     background: #28c044;
 }
 
+header{
+    text-align: right;
+}
+header button{
+    width: auto;
+}
+
 .clear{
     background-color: transparent;
     border: none;
@@ -81,8 +88,11 @@ button.fab.right{
     margin-bottom: 10px;
 }
 
-input, button {
+input, button, select {
     padding: 10px;
     border-radius: 10px;
     width: -webkit-fill-available;
+}
+input[type="radio"]{
+    width: auto;
 }

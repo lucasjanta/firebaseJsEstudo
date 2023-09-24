@@ -2,12 +2,6 @@ body{
     min-height: 100vh;
     background: #28c044;
 }
-header{
-    text-align: right;
-}
-header button{
-    width: auto;
-}
 
 ol{
     list-style-type: none;
