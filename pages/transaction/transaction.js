@@ -104,6 +104,9 @@ function createTransaction(){
     }
 }
 
+function cancelTransaction(){
+    window.location.href = '../home/home.html';
+}
 
 function onChangeDate() {
     const date = form.date().value;
