@@ -15,25 +15,22 @@ function isNewTransaction(){
 function findTransactionByUid(uid){
     showLoading();
 
-    firebase.firestore()
-    .collection("transactions")
-    .doc(uid)
-    .get()
-    .then(doc => {
-        hideLoading();
-        if (doc.exists){
-            fillTransactionScreen(doc.data());
-            toggleSaveButtonDisabled();
-        } else{
-            alert('Documento não encontrado');
+    transactionService.findByUid(uid)
+        .then(transaction => {
+            hideLoading();
+            if (transaction){
+                fillTransactionScreen(transaction);
+                toggleSaveButtonDisabled();
+            } else{
+                alert('Documento não encontrado');
+                window.location.href = '../home/home.html';
+            }
+        })
+        .catch(() => {
+            hideLoading();
+            alert('Erro ao recuperar documento');
             window.location.href = '../home/home.html';
-        }
-    })
-    .catch(() => {
-        hideLoading();
-        alert('Erro ao recuperar documento');
-        window.location.href = '../home/home.html';
-    })
+        })
 }
 
 function fillTransactionScreen(transaction){
@@ -66,9 +63,8 @@ function saveTransaction(){
 }
 
 function save(transaction){
-    firebase.firestore()
-        .collection('transactions')
-        .add(transaction)
+    showLoading();
+    transactionService.save(transaction)
         .then(() => {
             hideLoading();
             window.location.href = '../home/home.html';
@@ -81,10 +77,7 @@ function save(transaction){
 
 function update(transaction){
     showLoading();
-    firebase.firestore()
-        .collection('transactions')
-        .doc(getTransactionUid())
-        .update(transaction)
+    transactionService.update(transaction)
         .then(() => {
             hideLoading();
             window.location.href = '../home/home.html';
